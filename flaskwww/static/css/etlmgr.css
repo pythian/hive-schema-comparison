@@ -1,0 +1,9 @@
+            body{margin-left:50px;}
+            .button{cursor:pointer;font-size:smaller;padding-left:5px; text-decoration: underline;}
+            table{
+                font-family:arial;
+                font-size:12px;
+
+            }
+            tr:nth-child(odd)       { background-color:#eee; }
+            tr:nth-child(even)      { background-color:#fff; }

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}Hive Schema Diff{% endblock %}
+{% block head %}
+  {{ super() }}
+<style type="text/css">
+    .important { color: #336699; }
+    .db_row {cursor:pointer;}
+</style>
+
+<script>
+				  $(document).ready(
+				                    function(){
+                                        $("#footer").append(" ... ");
+
+				                    $(".db_row").click(function(event){
+				                        console.log("you clicked it " + event.target.id);
+				                        env_a = $("#env_a").val();
+				                        env_b = $("#env_b").val();
+                                        $("#comparison").load("/db_compare/" + event.target.id + "/" + env_a + "/" + env_b)
+				                    });
+
+
+                    console.log($("#env_a").val());
+                }
+
+                );
+                </script>
+
+
+{% endblock %}
+
+
+{% block content %}
+  <h1> Hive Schema Comparison</h1>
+
+       <form method="POST" action="submit_form">
+            {{form.env_a}} {{form.env_b}}{{form.submit}}
+        </form>
+        <h4>Comparing <b>{{a_name}}</b> to <b>{{b_name}}</b></h4>
+
+  <p class="important">
+      <div style="font-size:12px;float:left">select a database &nbsp;&nbsp;</div>
+        <div style="float:left">
+            <table>
+
+
+			{% for db in dbs: %}
+				<tr>
+	                <TD class="db_row" id="{{db}}">{{db}}</TD>
+				</tr>
+			{% endfor %}
+            </table>
+            <BR>
+            </div>
+            <div style="clear:both;"></div>
+            <div id="comparison"></div>
+        <BR><BR><BR>
+{% endblock %}

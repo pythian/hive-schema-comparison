@@ -1,0 +1,25 @@
+{
+    "Hive_Hosts": [
+        [
+            "dev",
+            "dev.server.address",
+            10001
+        ],
+        [
+            "stage",
+            "stage.server.address",
+            10001
+        ],
+        [
+            "prod",
+            "prod.server.address",
+            10001
+        ]
+    ],
+    "databases_to_compare": [
+        "reporting_database",
+        "data_warehouse",
+        "incremental_ingestion",
+        "test_db"
+    ]
+}

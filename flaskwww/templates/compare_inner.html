@@ -1,0 +1,43 @@
+
+
+<BR> <b></b>
+<BR><BR>
+
+       <table>
+           <tr><td colspan="8"><h2>&nbsp;Comparing Tables And Fields in {{database}}</h2></td> </tr>
+           <TR style="font-size:14px;font-weight:bold"><TD width="320" >Table</TD>
+                <!--<TD width="80">Difference</TD>-->
+               <td width="80">{{a_friendlyname}}</td><td  width="80">{{b_friendlyname}}</td>
+
+               </tc><Td width="350">Detail</Td></TR>
+
+
+
+      {% for i in res: %}
+		<tr>
+
+           <TD valign="top">{{i.table_name}} </TD>
+
+
+            {% if i.is_in_a == False %}
+                  <TD><img width="15" src="img/red_check.jpg"></TD>
+            {% else %}
+                <TD><img  width="15" src="img/green_check.jpg"></TD>
+             {% endif%}
+            {% if i.is_in_b == False %}
+                  <TD><img width="15" src="img/red_check.jpg"></TD>
+            {% else %}
+                <TD><img  width="15" src="img/green_check.jpg"></TD>
+             {% endif%}
+
+
+
+
+
+
+                   <Td>  {{i.diff_df|safe}} </Td>
+		</tr>
+	{% endfor %}
+
+     </table>
+
